@@ -152,6 +152,7 @@ impl<'a> SyntaxMapping<'a> {
         fn insert_git_config_global(mapping: &mut SyntaxMapping, config_home: impl AsRef<Path>) {
             let git_config_path = config_home.as_ref().join("git");
 
+            #[cfg_attr(mutest, mutest::ignore)]
             mapping
                 .insert(
                     &git_config_path.join("config").to_string_lossy(),
@@ -159,6 +160,7 @@ impl<'a> SyntaxMapping<'a> {
                 )
                 .ok();
 
+            #[cfg_attr(mutest, mutest::ignore)]
             mapping
                 .insert(
                     &git_config_path.join("ignore").to_string_lossy(),
@@ -166,6 +168,7 @@ impl<'a> SyntaxMapping<'a> {
                 )
                 .ok();
 
+            #[cfg_attr(mutest, mutest::ignore)]
             mapping
                 .insert(
                     &git_config_path.join("attributes").to_string_lossy(),
